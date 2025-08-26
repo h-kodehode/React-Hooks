@@ -8,7 +8,7 @@ export default function CoockieClicker() {
   return (
     <>
       <button onClick={() => setCount(count + 1)}>
-        <img className="w-sm rounded-full" src="./public/cupcake.jpg" alt="" />
+        <img className="w-sm rounded-full" src="/cupcake.jpg" alt="" />
         <p className="text-4xl">Yum! You have {count} delicious cupcakes 😍</p>
       </button>
     </>
