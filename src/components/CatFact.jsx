@@ -1,18 +1,13 @@
+import { useState } from "react";
+
 const apiUrl = "https://catfact.ninja/facts?limit=5";
 
-export default async function CatFacts() {
-  const response = await fetch(apiUrl);
+export default function CatFacts() {
+  const [data, setData] = useState(null);
 
-  if (!response.ok) {
-    throw new Error(response.status);
-  }
-
-  const data = await response.json();
-
-  console.log(data);
   return (
     <>
-      <p>{data}</p>
+      <p>{data === null ? "Loading.." : data}</p>
     </>
   );
 }
