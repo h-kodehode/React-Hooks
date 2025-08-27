@@ -7,10 +7,21 @@ export default function CoockieClicker() {
 
   return (
     <>
-      <button onClick={() => setCount(count + 1)}>
-        <img className="w-sm rounded-full" src="/cupcake.jpg" alt="" />
-        <p className="text-4xl">Yum! You have {count} delicious cupcakes 😍</p>
-      </button>
+      <div>
+        <button
+          onClick={() => setCount(count + 1)}
+          className="flex flex-col items-center focus:outline-none"
+        >
+          <img
+            className="w-40 mb-3 rounded-full shadow-lg"
+            src="/cupcake.jpg"
+            alt="Cupcake"
+          />
+          <p className="text-3xl text-amber-50">
+            Yum! You have {count} delicious cupcakes 😍
+          </p>
+        </button>
+      </div>
     </>
   );
 }
