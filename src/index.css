@@ -1,6 +1,5 @@
 @import "tailwindcss";
 
 * {
-  margin: 0 auto;
   background-color: rgb(73, 71, 71);
 }
