@@ -47,11 +47,11 @@ export default function CatFacts() {
           <p>{data === null ? "Loading... ⌛" : data}</p>
         )}
 
-        <ul>
+        <ol>
           {data.map((catFact, index) => (
             <li key={index}>{catFact.fact}</li>
           ))}
-        </ul>
+        </ol>
       </div>
     </>
   );

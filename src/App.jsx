@@ -7,23 +7,28 @@ function App() {
       <section className="mb-20 bg-teal-200">
         <CoockieClicker />
       </section>
-      <ul>
-        <li className="mb-5">
+
+      <h2 className="mb-8 text-4xl text-amber-100">
+        5 random fact about cats 🐈
+      </h2>
+
+      <ol>
+        <li className="mb-4 text-amber-50">
           <CatFacts />
         </li>
-        <li className="mb-5">
+        <li className="mb-4 text-amber-50">
           <CatFacts />
         </li>
-        <li className="mb-5">
+        <li className="mb-4 text-amber-50">
           <CatFacts />
         </li>
-        <li className="mb-5">
+        <li className="mb-4 text-amber-50">
           <CatFacts />
         </li>
-        <li className="mb-5">
+        <li className="mb-4 text-amber-50">
           <CatFacts />
         </li>
-      </ul>
+      </ol>
     </div>
   );
 }
