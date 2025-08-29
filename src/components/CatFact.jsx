@@ -3,9 +3,10 @@ import { useEffect, useState } from "react";
 const apiUrl = "https://catfact.ninja/facts?limit=30";
 
 export default function CatFacts() {
-  const [data, setData] = useState([]);
   const [error, setError] = useState(null);
-  console.log(data);
+  const [facts, setFacts] = useState([]);
+  const [loading, setLoading] = useState(false);
+
   useEffect(() => {
     async function fetchCatFact() {
       try {
@@ -17,21 +18,20 @@ export default function CatFacts() {
         const jsonData = await response.json();
         console.log(jsonData);
 
-        const randomIndex = Math.floor(Math.random() * jsonData.data.length);
-        // console.log(randomIndex);
+        const randomFacts = [];
 
-        // Legger randomFact i et tomt ARRAY før jeg oppdatrer data i useState
-        const catFacts = [];
+        for (let i = 0; i < 5; i++) {
+          const randomIndex = Math.floor(Math.random() * jsonData.data.length);
+          //   console.log(randomIndex);
+          randomFacts.push(jsonData.data[randomIndex].fact);
+        }
+        // console.log(randomFacts);
 
-        const randomFact = jsonData.data[randomIndex].fact;
-        console.log(randomFact);
-
-        catFacts.push(randomFact);
-        setData(catFacts);
+        setFacts(randomFacts);
       } catch (err) {
-        console.error(err);
-
         setError(err.message);
+      } finally {
+        setLoading(false); //Ferdig med henting uansett utfall
       }
     }
 
@@ -40,18 +40,21 @@ export default function CatFacts() {
 
   return (
     <>
-      <div>
-        {error ? (
-          <p className="text-red-600">{error}</p>
-        ) : (
-          <p>{data === null ? "Loading... ⌛" : data}</p>
-        )}
-
-        <ol>
-          {data.map((catFact, index) => (
-            <li key={index}>{catFact.fact}</li>
+      <div className=" flex flex-col justify-center items-center w-xl mb-40">
+        {loading && <p>Loading... ⌛</p>}
+        {error && <p className="text-red-600">{error}</p>}( )
+        <ul className="w-3xl text-amber-50 list-disc mb-10">
+          {facts.map((fact, index) => (
+            <li key={index} className="text-lg mb-2">
+              {fact}
+            </li>
           ))}
-        </ol>
+        </ul>
+        <img
+          src="citty.jpg"
+          alt="picture of cats"
+          className="filter sepia saturate-200 hue-rotate-90 brightness-80 rounded"
+        />
       </div>
     </>
   );
