@@ -3,8 +3,6 @@ import { useState } from "react";
 export default function CoockieClicker() {
   const [count, setCount] = useState(0);
 
-  //   setCount((prev) => prev + 1);
-
   return (
     <>
       <p className="text-6xl font-extrabold mb-14 text-center">

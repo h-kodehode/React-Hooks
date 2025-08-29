@@ -4,8 +4,6 @@ import UserComponent from "./components/UserComponent";
 import { useRef } from "react";
 import { FaArrowDown } from "react-icons/fa";
 
-// function App() {
-
 function App() {
   const catFactsRef = useRef(null);
 
